@@ -13,6 +13,6 @@ Things to note for Shift Cipher:
   
   ii) Decrypt Mode: Enter a key and encoded text to see it get decrypted according to the key you provided
   
-  Enter 'd' to switch to Decrypt Mode or 'e' to switch to Encrypt Mode when asked
+  Enter 'd' to switch to Decrypt Mode or 'e' to switch to Encrypt Mode when asked to change mode
   
   You can enter "exit" at any time to exit the program
