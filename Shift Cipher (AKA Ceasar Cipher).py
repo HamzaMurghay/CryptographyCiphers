@@ -33,7 +33,7 @@ if mode == "exit":
 
 def take_key_input(decryp_key):
     if (not decryp_key.isdigit()) or int(decryp_key) > 25 or int(decryp_key) <= 0:
-        if decryp_key == "exit":
+        if decryp_key.lower() == "exit":
             return 0
         else:
             print("Enter a valid key!\n\n")
