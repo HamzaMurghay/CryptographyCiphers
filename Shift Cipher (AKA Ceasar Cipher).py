@@ -6,7 +6,24 @@ small_letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm'
 capital_letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
                    'U', 'V', 'W', 'X', 'Y', 'Z']
 
-key = random.randint(1, 25)
+double_keys_enabled = input(
+    "Do you wish to have separate keys for lower and uppercase letters during encryption?(y/n): ").lower()
+
+if double_keys_enabled == 'y' or double_keys_enabled == 'yes':
+    lowercase_key = random.randint(1, 25)
+    uppercase_key = random.randint(1, 25)
+elif double_keys_enabled == 'n' or double_keys_enabled == "no":
+    key = random.randint(1, 25)
+
+while double_keys_enabled not in ['y', 'yes', 'n', 'no']:
+
+    double_keys_enabled = input("Invalid answer! Please try again: ")
+
+    if double_keys_enabled == 'y' or double_keys_enabled == 'yes':
+        lowercase_key = random.randint(1, 25)
+        uppercase_key = random.randint(1, 25)
+    elif double_keys_enabled == 'n' or double_keys_enabled == "no":
+        key = random.randint(1, 25)
 
 to_encrypt = ''
 to_decrypt = ''
@@ -28,14 +45,23 @@ while True:
         for letter in to_encrypt:
             if letter == ' ':
                 encrypted_output += letter
-            elif letter in small_letters:
+
+            elif letter in small_letters and (double_keys_enabled == "n" or double_keys_enabled == "no"):
                 encrypted_output += small_letters[(small_letters.index(letter) + key) % 26]
-            elif letter in capital_letters:
+
+            elif letter in small_letters and (double_keys_enabled == 'y' or double_keys_enabled == "yes"):
+                encrypted_output += small_letters[(small_letters.index(letter) + lowercase_key) % 26]
+
+            elif letter in capital_letters and (double_keys_enabled == "n" or double_keys_enabled == "no"):
                 encrypted_output += capital_letters[(capital_letters.index(letter) + key) % 26]
+
+            elif letter in capital_letters and (double_keys_enabled == 'y' or double_keys_enabled == "yes"):
+                encrypted_output += capital_letters[(capital_letters.index(letter) + uppercase_key) % 26]
+
             else:
                 continue
 
-        print("ENCRYPTED OUTPUT:", encrypted_output, "\n\n")
+        print("ENCRYPTED STRING:", encrypted_output, "\n\n")
         encrypted_output = ''
         mode = input("Which mode would you like to use?(Encrypt/Decrypt Mode): ").lower()
 
@@ -63,7 +89,7 @@ while True:
             else:
                 continue
 
-        print("DECRYPTED OUTPUT:", decrypted_output, "\n\n")
+        print("DECRYPTED STRING:", decrypted_output, "\n\n")
         decrypted_output = ''
         mode = input("Which mode would you like to use?(Encrypt/Decrypt Mode): ").lower()
 
