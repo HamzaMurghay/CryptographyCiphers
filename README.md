@@ -10,6 +10,7 @@ Things to note for Shift Cipher:
   You are able to use two modes: 
   
   i) Encrypt Mode: Enter any text to see it get encrypted according to the random key selected by the program
+  
   ii) Decrypt Mode: Enter a key and encoded text to see it get decrypted according to the key you provided
   
   Enter 'd' to switch to Decrypt Mode or 'e' to switch to Encrypt Mode when asked
