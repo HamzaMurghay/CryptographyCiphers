@@ -1,6 +1,6 @@
 # CryptographyCiphers
 
-**Things to note for Shift Cipher Program:**
+# **Things to note for Shift Cipher Program:**
 
   (The program encrypts according to the Shift Cipher, also known as Ceasar Cipher)
 
