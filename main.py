@@ -1,16 +1,34 @@
-# This is a sample Python script.
+import time
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+choice = ''
 
+while choice != "exit":
+    print(f"""
+                                Menu
+    -----------------------------------------------------------------
+    1) Shift Cipher
+    2) Affine Cipher
+    3) Vignere Cipher\n""")
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+    print('[Type "exit" at any time to quit the program, even if inside a cipher program]')
+    choice = input("Which cipher do you wish to use? >")
 
+    if not choice.isdigit() or int(choice) not in [1, 2, 3]:
+        if choice == "exit":
+            continue
+        print("\nEnter a valid option!")
+        time.sleep(2)
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+    elif int(choice) == 1:
+        print(f"""
+                                  Shift Cipher
+       -----------------------------------------------------------------\n""")
+        import shift_cipher
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    elif int(choice) == 2:
+        print("lol not implemented yet, try choosing something else :P")
+        time.sleep(2)
+
+    elif int(choice) == 3:
+        print("lol not implemented yet, try choosing something else :P")
+        time.sleep(2)
