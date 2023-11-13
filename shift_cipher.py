@@ -54,7 +54,7 @@ def take_key_input(specifier_string: str = ''):
     while not (decrypt_key.isdigit()) or (int(decrypt_key) % 26 == 0):
 
         if decrypt_key.lower() == "exit":
-            return decrypt_key.lower()
+            exit()
         else:
             decrypt_key = input("Enter a valid key!(It should not be 0 or multiples of 26) ")
 
@@ -99,13 +99,9 @@ while True:
 
         if double_keys_enabled:
             lower_d_key = take_key_input('lowercase ')
-            if lower_d_key == "exit":
-                break
             upper_d_key = take_key_input('uppercase ')
         else:
             lower_d_key = upper_d_key = take_key_input()
-        if upper_d_key == "exit":
-            break
 
         to_decrypt = input("Enter Sentence/Word to Decrypt: ")
         if to_decrypt == "exit":
