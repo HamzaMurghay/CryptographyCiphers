@@ -12,38 +12,28 @@ while double_keys_enabled not in ['y', 'yes', 'n', 'no', 'exit']:
 if double_keys_enabled == "exit":
     exit()
 
+
+def correct_key_inputted(print_string):
+    key = input("\n"+print_string)
+
+    while not key.isdigit() or int(key) % 26 == 0:
+        if key.lower() == "exit":
+            exit()
+        elif str(abs(int(key))).isdigit():
+            return int(key) % 26
+        key = input("Enter a valid key! (It should not be 0 or a multiple of 26) ")
+    return int(key) % 26
+
+
 lowercase_key = uppercase_key = 0
 
 if double_keys_enabled == 'y' or double_keys_enabled == 'yes':
-
+    lowercase_key = correct_key_inputted("Enter lowercase key for encryption: ")
+    uppercase_key = correct_key_inputted("Enter uppercase key for encryption: ")
     double_keys_enabled = True
-
-    lowercase_key = input("Enter lowercase key for encryption: ")
-    while not (lowercase_key.isdigit()) or (int(lowercase_key) % 26 == 0):
-        if lowercase_key == "exit":
-            exit()
-        lowercase_key = input("Enter a valid key! (It should not be 0 or a multiple of 26) ")
-
-    lowercase_key = int(lowercase_key) % 26
-
-    uppercase_key = input("Enter uppercase key for encryption: ")
-    while not (uppercase_key.isdigit()) or (int(uppercase_key) % 26 == 0):
-        if uppercase_key == "exit":
-            exit()
-        uppercase_key = input("Enter a valid key! (It should not be 0 or a multiple of 26) ")
-
-    uppercase_key = int(uppercase_key) % 26
-
 else:
+    lowercase_key = uppercase_key = correct_key_inputted("Enter key for encryption: ")
     double_keys_enabled = False
-
-    lowercase_key = uppercase_key = input("Enter key for encryption: ")
-    while not (lowercase_key.isdigit()) or (int(lowercase_key) % 26 == 0):
-        if lowercase_key == "exit":
-            exit()
-        lowercase_key = input("Enter a valid key! (It should not be 0 or a multiple of 26) ")
-
-    lowercase_key = uppercase_key = int(lowercase_key) % 26
 
 mode = input("\nWhich mode would you like to use?(Encrypt/Decrypt Mode): ").lower()
 
@@ -55,10 +45,11 @@ def take_key_input(specifier_string: str = ''):
 
         if decrypt_key.lower() == "exit":
             exit()
+        elif str(abs(int(decrypt_key))).isdigit():
+            return int(decrypt_key) % 26
         else:
             decrypt_key = input("Enter a valid key!(It should not be 0 or multiples of 26) ")
-
-    return decrypt_key
+    return int(decrypt_key) % 26
 
 
 def encrypt_or_decrypt(string_to_crypt, encryption: bool):
@@ -86,7 +77,6 @@ def encrypt_or_decrypt(string_to_crypt, encryption: bool):
 while True:
     if mode == "exit":
         break
-
     elif mode == 'e':
         to_encrypt = input("Enter Sentence/Word to Encrypt: ")
         if to_encrypt.lower() == "exit":
@@ -94,7 +84,6 @@ while True:
 
         print(f"\nENCRYPTED STRING: {encrypt_or_decrypt(to_encrypt, True)} \n")
         mode = input("\nWhich mode would you like to use?(Encrypt/Decrypt Mode): ").lower()
-
     elif mode == 'd':
 
         if double_keys_enabled:
@@ -109,7 +98,6 @@ while True:
 
         print(f"\nDECRYPTED STRING: {encrypt_or_decrypt(to_decrypt, False)} \n")
         mode = input("\nWhich mode would you like to use?(Encrypt/Decrypt Mode): ").lower()
-
     else:
         print("Please enter a valid mode!\n")
         mode = input("\nWhich mode would you like to use?(Encrypt/Decrypt Mode): ").lower()
