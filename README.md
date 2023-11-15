@@ -4,9 +4,9 @@ For all of the programs in this repository:
 
  - There are two modes:
 
- - i) Encrypt Mode: Enter any text to see it get encrypted according to the key(s) selected by the user (It is case sensitive, i.e your encoded string will be in the exact                          format that you entered it with. Example: INPUT: hEllO, Encrypted String: zEbbW)
+      i) Encrypt Mode: Enter any text to see it get encrypted according to the key(s) selected by the user (It is case sensitive, i.e your encoded string will be in the exact                          format that you entered it with. Example: INPUT: hEllO, Encrypted String: zEbbW)
   
-  - ii) Decrypt Mode: Enter a key and encoded text to see it get decrypted according to the key(s) provided by user,decryption is successfull as long as you have the correct keys (Case sensitive, same as above)
+      ii) Decrypt Mode: Enter a key and encoded text to see it get decrypted according to the key(s) provided by user,decryption is successfull as long as you have the correct keys (Case sensitive, same as above)
   
   -  Enter 'd' to switch to Decrypt Mode or 'e' to switch to Encrypt Mode when asked to change mode (Not case sensitive)
 
