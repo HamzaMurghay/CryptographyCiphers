@@ -52,17 +52,17 @@ def find_multiplicative_inverse(key_a):
 def take_key_input(request_text: str, encryption: bool):
     crypt_key = input(f"{request_text}")
 
-    while not crypt_key.isdigit() or int(crypt_key) % 2 == 0 or int(crypt_key) % 13 == 0 or int(crypt_key) == 0:
+    while not crypt_key.isdigit() or int(crypt_key) % 2 == 0 or int(crypt_key) % 13 == 0:
 
         if crypt_key.lower() == "exit":
             exit()
-        elif not crypt_key.isdigit():
-            crypt_key = str(take_key_input("Invalid key! Please re-enter the key: ", encryption))
+        elif not crypt_key.isdigit() or int(crypt_key) == 0:
+            crypt_key = input("Invalid key! Please re-enter the key: ")
         else:
             while find_multiplicative_inverse(int(crypt_key)) == -1:
                 print('This is an imperfect key!(i.e multiple letters will encrypt/decrypt to the same letter)')
                 print('NOTE: Avoid entering 0, multiples of 2 or multiples of 13 in order to avoid this\n')
-                crypt_key = str(take_key_input("Please re-enter the key: ", encryption))
+                crypt_key = input("Please re-enter key: ")
     if encryption:
         return int(crypt_key)
     else:
@@ -98,4 +98,4 @@ while True:
     else:
         print("Enter a valid mode!")
 
-# set of keys with no M.I for mod 26: {2, 4, 6, 8, 10, 12, 13, 14, 16, 18, 20, 22, 24}
+# set of A keys with no M.I for mod 26: {2, 4, 6, 8, 10, 12, 13, 14, 16, 18, 20, 22, 24}
