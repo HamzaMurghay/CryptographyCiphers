@@ -26,8 +26,10 @@ while choice != "exit":
         import shift_cipher
 
     elif int(choice) == 2:
-        print("lol not implemented yet, try choosing something else :P")
-        time.sleep(2)
+        print(f"""
+                                         Affine Cipher
+               -----------------------------------------------------------------\n""")
+        import affine_cipher
 
     elif int(choice) == 3:
         print("lol not implemented yet, try choosing something else :P")

@@ -7,36 +7,6 @@ capital_letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', '
                    'U', 'V', 'W', 'X', 'Y', 'Z']
 
 
-def find_multiplicative_inverse(key_a):
-    if math.gcd(key_a, 26) != 1:
-        return -1
-    else:
-        for num in range(key_a):
-            result = (num*26+1)/key_a
-            if result.is_integer():
-                return str(int(result))
-
-
-def take_key_input(request_text: str, encryption: bool):
-    crypt_key = input(f"{request_text}")
-
-    while not crypt_key.isdigit() or int(crypt_key) % 2 == 0 or int(crypt_key) % 13 == 0 or int(crypt_key) == 0:
-
-        if crypt_key.lower() == "exit":
-            exit()
-        elif not crypt_key.isdigit():
-            crypt_key = str(take_key_input("Invalid key! Please re-enter the key: ", encryption))
-        else:
-            while find_multiplicative_inverse(int(crypt_key)) == -1:
-                print('This is an imperfect key!(i.e multiple letters will encrypt/decrypt to the same letter)')
-                print('NOTE: Avoid entering 0, multiples of 2 or multiples of 13 in order to avoid this\n')
-                crypt_key = str(take_key_input("Please re-enter the key: ", encryption))
-    if encryption:
-        return int(crypt_key)
-    else:
-        return find_multiplicative_inverse(int(crypt_key))
-
-
 def encrypt(plaintext):
     if plaintext.lower() == "exit":
         exit()
@@ -67,6 +37,36 @@ def decrypt(ciphertext):
         else:
             decrypted_string += letter
     return decrypted_string
+
+
+def find_multiplicative_inverse(key_a):
+    if math.gcd(key_a, 26) != 1:
+        return -1
+    else:
+        for num in range(key_a):
+            result = (num*26+1)/key_a
+            if result.is_integer():
+                return str(int(result))
+
+
+def take_key_input(request_text: str, encryption: bool):
+    crypt_key = input(f"{request_text}")
+
+    while not crypt_key.isdigit() or int(crypt_key) % 2 == 0 or int(crypt_key) % 13 == 0 or int(crypt_key) == 0:
+
+        if crypt_key.lower() == "exit":
+            exit()
+        elif not crypt_key.isdigit():
+            crypt_key = str(take_key_input("Invalid key! Please re-enter the key: ", encryption))
+        else:
+            while find_multiplicative_inverse(int(crypt_key)) == -1:
+                print('This is an imperfect key!(i.e multiple letters will encrypt/decrypt to the same letter)')
+                print('NOTE: Avoid entering 0, multiples of 2 or multiples of 13 in order to avoid this\n')
+                crypt_key = str(take_key_input("Please re-enter the key: ", encryption))
+    if encryption:
+        return int(crypt_key)
+    else:
+        return find_multiplicative_inverse(int(crypt_key))
 
 
 def validate_key(print_string):
