@@ -27,11 +27,11 @@ Important points to note:
 
   You still use the same two modes as previous program:
 
-    i) Encrypt Mode: Enter any text to see it get encrypted according to the keys selected by the user (It is case sensitive, the encrypted/decrypted message will be in the same case format as input, Example: INPUT: hEllO, Encrypted String: zEbbW)
+  i) Encrypt Mode: Enter any text to see it get encrypted according to the keys selected by the user (It is case sensitive, the encrypted/decrypted message will be in the same case format as input, Example: INPUT: hEllO, Encrypted String: zEbbW)
     
-    ii) Decrypt Mode:  Enter the two keys and encoded text to see it get decrypted according to the keys you provided. (Case sensitive, same as above) 
+  ii) Decrypt Mode:  Enter the two keys and encoded text to see it get decrypted according to the keys you provided. (Case sensitive, same as above) 
 
-    - However you must know the keys used during encyption, brute force is not an effective option in this cipher 
+  - However you must know the keys used during encyption, brute force is not an effective option in this cipher 
     
 Important points to note:
 
