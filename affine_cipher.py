@@ -57,7 +57,7 @@ def take_key_input(request_text: str, encryption: bool):
         if crypt_key.lower() == "exit":
             exit()
         elif not crypt_key.isdigit() or int(crypt_key) == 0:
-            crypt_key = input("Invalid key! Please re-enter the key(Avoid entering 0): ")
+            crypt_key = input("Invalid key! Please re-enter the key(Avoid entering 0 or negative values): ")
         else:
             while find_multiplicative_inverse(int(crypt_key)) == -1:
                 print('This is an imperfect key!(i.e multiple letters will encrypt/decrypt to the same letter)')
@@ -71,6 +71,9 @@ def take_key_input(request_text: str, encryption: bool):
 
 def validate_key(print_string):
     key = input("\n"+print_string)
+
+    if str(abs(int(key))).isdigit():
+        return int(key) % 26
 
     while not key.isdigit():
         if key.lower() == "exit":
