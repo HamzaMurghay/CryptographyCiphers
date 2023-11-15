@@ -57,11 +57,11 @@ def take_key_input(request_text: str, encryption: bool):
         if crypt_key.lower() == "exit":
             exit()
         elif not crypt_key.isdigit() or int(crypt_key) == 0:
-            crypt_key = input("Invalid key! Please re-enter the key: ")
+            crypt_key = input("Invalid key! Please re-enter the key(Avoid entering 0): ")
         else:
             while find_multiplicative_inverse(int(crypt_key)) == -1:
                 print('This is an imperfect key!(i.e multiple letters will encrypt/decrypt to the same letter)')
-                print('NOTE: Avoid entering 0, multiples of 2 or multiples of 13 in order to avoid this\n')
+                print('NOTE: Avoid entering multiples of 2 or multiples of 13 in order to avoid this\n')
                 crypt_key = input("Please re-enter key: ")
     if encryption:
         return int(crypt_key)
