@@ -17,7 +17,8 @@ For all the programs in this repository:
   (The program encrypts according to the Shift Cipher, also known as Caesar Cipher)
 
   - At the start of the program it will ask you if you want to use different keys for lowercase letters and uppercase letters, if you chose yes, this will apply to both encryption      and decryption (During encryption, the program will generate two random keys for lower and uppercase letters and use those, leading to a more secure encrypted result, in            decryption, you will have to input two keys, one for lowercase and the other for uppercase letters)
-  - You are able to input negative keys as well as keys greater than 26, the program will give you the according key mod to 26. But do not give the program a key of 0 or any multiple of 26, it will ask you to re-enter your key (Since that results in no encryption)
+    
+  - You are able to input negative keys as well as keys greater than 26, the program will give you the according key mod to 26. But do not give the program a key of 0 or any multiple of 26, it will ask you to re-enter your key (Since that results in no encryption/decryption)
 
   # **Important Things to note for Affine Cipher Program:**
 
