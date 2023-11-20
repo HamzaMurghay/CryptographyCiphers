@@ -27,10 +27,12 @@ while choice != "exit":
 
     elif int(choice) == 2:
         print(f"""
-                                         Affine Cipher
-               -----------------------------------------------------------------\n""")
+                                  Affine Cipher
+        -----------------------------------------------------------------\n""")
         import affine_cipher
 
     elif int(choice) == 3:
-        print("lol not implemented yet, try choosing something else :P")
-        time.sleep(2)
+        print(f"""
+                                  Vignere Cipher
+        -----------------------------------------------------------------\n""")
+        import vignere_cipher
