@@ -72,10 +72,7 @@ def take_key_input(request_text: str, encryption: bool):
 def validate_key(print_string):
     key = input("\n"+print_string)
 
-    if str(abs(int(key))).isdigit():
-        return int(key) % 26
-
-    while not key.isdigit():
+    while not key.lstrip('-+').isdigit():
         if key.lower() == "exit":
             exit()
         key = input("Invalid key! Please re-enter the key: ")
