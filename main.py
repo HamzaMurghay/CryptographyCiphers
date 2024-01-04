@@ -23,16 +23,13 @@ while choice != "exit":
         print(f"""
                                   Shift Cipher
        -----------------------------------------------------------------\n""")
-        import shift_cipher
 
     elif int(choice) == 2:
         print(f"""
                                   Affine Cipher
         -----------------------------------------------------------------\n""")
-        import affine_cipher
 
     elif int(choice) == 3:
         print(f"""
                                   Vignere Cipher
         -----------------------------------------------------------------\n""")
-        import vignere_cipher
