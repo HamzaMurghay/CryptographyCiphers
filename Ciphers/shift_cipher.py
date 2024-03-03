@@ -67,7 +67,7 @@ def encrypt_or_decrypt(string_to_crypt, encryption: bool):
         for letter in string_to_crypt:
             if letter in small_letters:
                 crypted_string += small_letters[(small_letters.index(letter) - int(lower_d_key)) % 26]
-            elif letter:
+            elif letter in capital_letters:
                 crypted_string += capital_letters[(capital_letters.index(letter) - int(upper_d_key)) % 26]
             else:
                 crypted_string += letter
