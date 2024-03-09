@@ -30,6 +30,11 @@ def decrypt(ciphertext: str):
 
     keystream = ''
     plaintext = ''
+
+    ciphertext = ciphertext.replace(" ", "")
+    ciphertext = ciphertext.replace("\n", "")
+    ciphertext = ciphertext.replace("\t", "")
+
     for letter_position in range(len(ciphertext)):
         keystream += d_key[letter_position % len(d_key)]
         current_key_pos = small_letters.index(keystream[letter_position])
