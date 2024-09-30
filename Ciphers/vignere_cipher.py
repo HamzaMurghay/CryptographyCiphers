@@ -11,6 +11,11 @@ def encrypt(plaintext: str):
 
     keystream = ''
     ciphertext = ''
+
+    plaintext = plaintext.replace(" ", "")
+    plaintext = plaintext.replace("\n", "")
+    plaintext = plaintext.replace("\t", "")
+
     for letter_position in range(len(plaintext)):
         keystream += key[letter_position % (len(key))]
         current_key_pos = small_letters.index(keystream[letter_position])
@@ -41,7 +46,7 @@ def decrypt(ciphertext: str):
 
         if ciphertext[letter_position] in small_letters:
             plaintext += small_letters[(small_letters.index(ciphertext[letter_position]) - current_key_pos) % 26]
-        elif ciphertext[letter_position] in capital_letters:
+        elif ciphertext[letter_position] in capital_letters:\
             plaintext += capital_letters[(capital_letters.index(ciphertext[letter_position]) - current_key_pos) % 26]
         else:
             plaintext += ciphertext[letter_position]
